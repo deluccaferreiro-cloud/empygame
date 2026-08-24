@@ -4,21 +4,22 @@ pygame.init()
 ancho = 800
 alto = 600
 ventana = pygame.display.set_mode((ancho, alto))
-pygame.display.set_caption("Mi juego")
+pygame.display.set_caption("Juego")
 
 ejecutando = True
 x = 100
+y = 200
 velocidad = 5
 reloj = pygame.time.Clock()
 
 while ejecutando:
     for evento in pygame.event.get():
         if evento.type == pygame.QUIT:
-            ejecutando = False
+            ejecutando = False  
     y = 200
     
     ventana.fill((25, 30, 40))
-    pygame.draw.rect(ventana, (80, 200,255), (x, 200, 50, 50))
+    pygame.draw.rect(ventana, (80, 200,255), (x, y, 50, 50))
     pygame.display.flip()
 
     teclas = pygame.key.get_pressed()
