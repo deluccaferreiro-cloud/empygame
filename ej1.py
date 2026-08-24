@@ -10,14 +10,40 @@ reloj = pygame.time.Clock()
 y = 225
 x = 300
 velocidad = 5
+texto1 = "JUGAR"
+texto2 = "INSTRUCCIONES"
+texto3 = "SALIR"
+fuente = pygame.font.Font(None, 32)
+pantalla_actual = "menu"
+cuadro1 = pygame.Rect(x, y, 200, 50)
+cuadro2 = pygame.Rect(x, 300, 200, 50)
+cuadro3 = pygame.Rect(x, 375, 200, 50)
 
 while ejecutando:
+    
     for evento in pygame.event.get():
         if evento.type == pygame.QUIT:
-            ejecutando = False 
-    pygame.draw.rect(ventana, (80, 200, 255), (x, y, 200, 50))
-    pygame.draw.rect(ventana, (80, 200, 255), (x, 300, 200, 50))
-    pygame.draw.rect(ventana, (80, 200, 255), (x, 375, 200, 50))
+            ejecutando = False
+        if evento.type == pygame.MOUSEBUTTONDOWN:
+              if evento.button == 1:
+                if pantalla_actual == "menu" and cuadro2.collidepoint(evento.pos):
+                  pantalla_actual = "instrucciones"  
+    if pantalla_actual == "menu":
+        ventana.fill((0, 0, 0))
+        pygame.draw.rect(ventana, (80, 200, 255), cuadro1)
+        pygame.draw.rect(ventana, (80, 200, 255), cuadro2)
+        pygame.draw.rect(ventana, (80, 200, 255), cuadro3)
+        superficietexto1 = fuente.render(texto1, True, (0, 0, 0))
+        ventana.blit(superficietexto1, (x + 60, 225 + 14))
+        superficietexto2 = fuente.render(texto2, True, (0, 0, 0))
+        ventana.blit(superficietexto2, (x + 6, 300 + 14))
+        superficietexto3 = fuente.render(texto3, True, (0, 0, 0))
+        ventana.blit(superficietexto3, (x + 60, 375 + 14))
+        
+    elif pantalla_actual == "instrucciones":
+        ventana.fill((50, 150, 50))
+        texto_nuevo = fuente.render("¡Bienvenido al otro lugar!", True, (255, 255, 255))
+        ventana.blit(texto_nuevo, (250, 280))
     pygame.display.flip()
-    
+    reloj.tick(60)
 pygame.quit()
