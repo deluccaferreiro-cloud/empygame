@@ -15,7 +15,8 @@ while ejecutando:
     for evento in pygame.event.get():
         if evento.type == pygame.QUIT:
             ejecutando = False
-    x += velocidad
+    y = 200
+    
     ventana.fill((25, 30, 40))
     pygame.draw.rect(ventana, (80, 200,255), (x, 200, 50, 50))
     pygame.display.flip()
@@ -24,12 +25,16 @@ while ejecutando:
 
     if teclas[pygame.K_w]:
         y -= velocidad
+
     if teclas[pygame.K_s]:
         y += velocidad
+
     if teclas[pygame.K_a]:
         x -= velocidad
+
     if teclas[pygame.K_d]:
         x += velocidad
+
     pygame.display.flip()
     reloj.tick(60)
 
