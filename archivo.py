@@ -13,10 +13,9 @@ while ejecutando:
         if evento.type == pygame.QUIT:
             ejecutando = False
 
-    ventana.fill((0, 0, 0))
-    pygame.display.flip()
-
 x = 100
 y = 100
-
+velocidad_x = 5
+while ejecutando:
+    
 pygame.draw.rect(ventana, (80, 200,255), (x, y, 50, 50))
