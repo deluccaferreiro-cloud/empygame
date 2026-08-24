@@ -41,9 +41,11 @@ while ejecutando:
         ventana.blit(superficietexto3, (x + 60, 375 + 14))
         
     elif pantalla_actual == "instrucciones":
-        ventana.fill((50, 150, 50))
-        texto_nuevo = fuente.render("¡Bienvenido al otro lugar!", True, (255, 255, 255))
-        ventana.blit(texto_nuevo, (250, 280))
+        ventana.fill((223,186,201))
+        texto_instrucc = fuente.render("Instrucciones:" True (255, 255, 255))
+        texto_instrucc2 = fuente.render("Aca tengo qur escribir las instrucciones" True, (255, 255, 255))
+        ventana.blit(texto_instrucc, (250, 280))
+        ventana.blit(texto_instrucc2, (250, 280))
     pygame.display.flip()
     reloj.tick(60)
 pygame.quit()
